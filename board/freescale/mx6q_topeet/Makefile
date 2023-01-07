@@ -4,4 +4,4 @@
 #
 # (C) Copyright 2011 Freescale Semiconductor, Inc.
 
-obj-y  := mx6sabresd.o
+obj-y  := mx6q_topeet.o
