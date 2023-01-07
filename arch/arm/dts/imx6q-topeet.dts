@@ -6,11 +6,11 @@
 /dts-v1/;
 
 #include "imx6q.dtsi"
-#include "imx6qdl-sabresd.dtsi"
+#include "imx6qdl-topeet.dtsi"
 
 / {
-	model = "i.MX6 Quad SABRE Smart Device Board";
-	compatible = "fsl,imx6q-sabresd", "fsl,imx6q";
+	model = "i.MX6 Quad Topeet Smart Device Board";
+	compatible = "fsl,imx6q-topeet", "fsl,imx6q";
 };
 
 &battery {

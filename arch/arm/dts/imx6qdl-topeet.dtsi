@@ -1128,8 +1128,8 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_usdhc2>;
 	bus-width = <8>;
-	cd-gpios = <&gpio2 2 GPIO_ACTIVE_LOW>;
-	wp-gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
+	cd-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
+	//wp-gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>; /* N.C */
 	no-1-8-v;
 	keep-power-in-suspend;
 	enable-sdio-wakeup;
