@@ -1222,7 +1222,7 @@ int board_late_init(void)
 #endif
 
 #ifdef CONFIG_ENV_VARS_UBOOT_RUNTIME_CONFIG
-	env_set("board_name", "SABRESD");
+	env_set("board_name", "TOPEET");
 
 	if (is_mx6dqp())
 		env_set("board_rev", "MX6QP");
@@ -1629,13 +1629,13 @@ void board_init_f(ulong dummy)
 int board_fit_config_name_match(const char *name)
 {
 	if (is_mx6dq()) {
-		if (!strcmp(name, "imx6q-sabresd"))
+		if (!strcmp(name, "imx6q-topeet"))
 			return 0;
 	} else if (is_mx6dqp()) {
-		if (!strcmp(name, "imx6qp-sabresd"))
+		if (!strcmp(name, "imx6qp-topeet"))
 			return 0;
 	} else if (is_mx6dl()) {
-		if (!strcmp(name, "imx6dl-sabresd"))
+		if (!strcmp(name, "imx6dl-topeet"))
 			return 0;
 	}
 
