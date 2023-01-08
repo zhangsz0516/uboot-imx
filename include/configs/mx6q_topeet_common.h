@@ -6,8 +6,8 @@
  * Configuration settings for the Freescale i.MX6Q SabreSD board.
  */
 
-#ifndef __MX6QSABRE_COMMON_CONFIG_H
-#define __MX6QSABRE_COMMON_CONFIG_H
+#ifndef __MX6Q_TOPEET_COMMON_CONFIG_H
+#define __MX6Q_TOPEET_COMMON_CONFIG_H
 
 #include <linux/stringify.h>
 #include "mx6_common.h"
@@ -21,6 +21,7 @@
 #define CONFIG_ETHPRIME			"eth0"
 
 #define CONFIG_PHY_REALTEK
+#define CONFIG_FEC_MXC_PHYADDR		0
 
 #ifdef CONFIG_MX6S
 #define SYS_NOSMP "nosmp"

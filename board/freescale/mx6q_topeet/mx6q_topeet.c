@@ -356,21 +356,20 @@ int board_mmc_init(struct bd_info *bis)
 #endif
 #endif
 
-static int ar8031_phy_fixup(struct phy_device *phydev)
+static int mx6q_phy_fixup(struct phy_device *phydev)
 {
 	unsigned short val;
 
 	/* To enable AR8031 ouput a 125MHz clk from CLK_25M */
-	if (!is_mx6dqp()) {
-		phy_write(phydev, MDIO_DEVAD_NONE, 0xd, 0x7);
-		phy_write(phydev, MDIO_DEVAD_NONE, 0xe, 0x8016);
-		phy_write(phydev, MDIO_DEVAD_NONE, 0xd, 0x4007);
 
-		val = phy_read(phydev, MDIO_DEVAD_NONE, 0xe);
-		val &= 0xffe3;
-		val |= 0x18;
-		phy_write(phydev, MDIO_DEVAD_NONE, 0xe, val);
-	}
+    phy_write(phydev, MDIO_DEVAD_NONE, 0xd, 0x7);
+    phy_write(phydev, MDIO_DEVAD_NONE, 0xe, 0x8016);
+    phy_write(phydev, MDIO_DEVAD_NONE, 0xd, 0x4007);
+
+    val = phy_read(phydev, MDIO_DEVAD_NONE, 0xe);
+    val &= 0xffe3;
+    val |= 0x18;
+    phy_write(phydev, MDIO_DEVAD_NONE, 0xe, val);
 
 	/* set the IO voltage to 1.8v */
 	phy_write(phydev, MDIO_DEVAD_NONE, 0x1d, 0x1f);
@@ -387,7 +386,7 @@ static int ar8031_phy_fixup(struct phy_device *phydev)
 
 int board_phy_config(struct phy_device *phydev)
 {
-	ar8031_phy_fixup(phydev);
+	mx6q_phy_fixup(phydev);
 
 	if (phydev->drv->config)
 		phydev->drv->config(phydev);
