@@ -116,8 +116,8 @@ config LDO_BYPASS_CHECK
 	default y if !MX6SLL
 	help
 	  This feature searches the gpc node in loaded DTB and checking the
-	  "fsl,ldo-bypass" property. When the property is set, board relevant 
-	  PMIC settings are called to adjust for LDO bypass. 
+	  "fsl,ldo-bypass" property. When the property is set, board relevant
+	  PMIC settings are called to adjust for LDO bypass.
 
 config CMD_BEE
 	bool "Enable commands for Bus Encryption Engine(BEE)"
@@ -439,6 +439,21 @@ config TARGET_MX6SOLOSABREAUTO
 config TARGET_MX6QSABRESD
 	bool "mx6qsabresd"
     select TARGET_MX6SABRESD_COMMON
+    depends on MX6Q
+
+config TARGET_MX6Q_TOPEET
+    bool "mx6q-topeet"
+    select BOARD_LATE_INIT
+    select DM
+    select DM_THERMAL
+    select IMX_THERMAL
+    select BOARD_EARLY_INIT_F
+    select NXP_BOARD_REVISION
+    imply CMD_DM
+    select FSL_CAAM
+    select FSL_BLOB
+    select ARCH_MISC_INIT
+    select RNG_SELF_TEST
     depends on MX6Q
 
 config TARGET_MX6QPSABRESD
@@ -850,6 +865,7 @@ source "board/engicam/imx6ul/Kconfig"
 source "board/freescale/mx6memcal/Kconfig"
 source "board/freescale/mx6sabreauto/Kconfig"
 source "board/freescale/mx6sabresd/Kconfig"
+source "board/freescale/mx6q_topeet/Kconfig"
 source "board/freescale/mx6slevk/Kconfig"
 source "board/freescale/mx6sll_val/Kconfig"
 source "board/freescale/mx6sllevk/Kconfig"
